@@ -2,16 +2,18 @@
 
 #### Guidance2.1 Beta Version Prerequisites:
 
-* Create python project and save all the files and folders into the project folder accordingly
+* Create python project and save all the files and folders from the **guidance_MacOS-arm64** folder into the project folder accordingly
 * Install all prerequisites listed in requirements.txt
-**`pip install -r requirements. txt`**
+**`pip install -r requirements.txt`**
 * The **./script/programs** folder has multiple subfolders with the .cpp programs' source code which require platform-specific builds to be performed. 
-  - semphy - **./script/programs/semphy/semphy** path is assumed
+  - semphy - **./script/programs/semphy/semphy** path is assumed // CAN BE IGNORED AS SEMPHY IS NOT USED IN THE LATEST VERSION OF GUIDANCE
   - removeTaxa - **script/programs/removeTaxa/removeTaxa** path is assumed
   - msa_set_score - **script/programs/msa_set_score/msa_set_score** path is assumed 
   - isEqualTree - **script/programs/isEqualTree/isEqualTree** path is assumed
 
-Each program makefile is located in this program subfolder accordingly. The existing executables in the folders are built for MacOS-arm64 (M1), if this is not the platform you are working on, they should be deleted and replaced with the executables which you build on your platform using the makefiles.
+Each program makefile is located in this program subfolder accordingly. The existing executables in the folders are built for **MacOS-arm64 (M1),** if this is not the platform you are working on, they should be deleted and replaced with the executables which you build on your platform using the makefiles.
+
+The **Linux** platform executables (removeTaxa, msa_set_score, isEqualTree) can be copied from the **Linux_executables** folder and inserted into ./script/programs/removeTaxa/ , ./script/programs/msa_set_score/ and ./script/programs/isEqualTree/ resepctively.
 
 * Other prerequisites to be installed:
   - MAFFT v7.525 should be installed from [https://mafft.cbrc.jp/alignment/software/source.html](https://mafft.cbrc.jp/alignment/software/source.html) and globally callable with `mafft` command line; if local executable is used then path to it should be updated in **./script/config.py** under MAFFT_GUIDANCE variable and **./script/guidance_args_library.py**
@@ -29,6 +31,7 @@ Each program makefile is located in this program subfolder accordingly. The exis
 Simple example of running the program from the command line:
 
 `cd <base_directory_of_the_project>`
+
 `python3 guidance_main.py --seqFile <path_to_the_fasta_file_with_sequences> --msaProgram MAFFT --seqType aa --outDir <path_to_the_output_directory> --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
 In this sample run it is assumed that the input is amino-acids (aa) sequences, 100 bootstrap trees are created and 8 CPUs are used   
