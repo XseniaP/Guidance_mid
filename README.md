@@ -5,12 +5,16 @@
 * Create python project and save all the files and folders either from **guidance_MacOS-arm64**  OR **guidance_Linux** folder  into your project folder accordingly
 * Install all prerequisites listed in requirements.txt
 **On MacOS (via pip or pip3):**
+
 `pip install -r requirements.txt`
 
 **On Linux Ubuntu:**
 `sudo apt install python3.12-venv
+
 python3 -m venv .venv
+
 source .venv/bin/activate
+
 python3 -m pip install -r requirements.txt`
 
 * The **./script/programs** folder has multiple subfolders with the .cpp programs' source code which require platform-specific builds to be performed. 
