@@ -28,9 +28,9 @@ Each program makefile is located in this program subfolder accordingly. The exis
 
 Simple example of running the program from the command line:
 
-`cd <base_directory_of_the_project>/script/`
+`cd <base_directory_of_the_project>`
 
-`python3 guidance_main.py --seqFile <path_to_the_fasta_file_with_sequences> --msaProgram MAFFT --seqType aa --outDir <path_to_the_output_directory> --program GUIDANCE2 --bootstraps 100 --proc_num 8`
+`python3 script/guidance_main.py --seqFile <path_to_the_fasta_file_with_sequences> --msaProgram MAFFT --seqType aa --outDir <path_to_the_output_directory> --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
 In this sample run it is assumed that the input is amino-acids (aa) sequences, 100 bootstrap trees are created and 8 CPUs are used   
 The '--seqType' should be changed to 'nuc' in case of nucleotides
