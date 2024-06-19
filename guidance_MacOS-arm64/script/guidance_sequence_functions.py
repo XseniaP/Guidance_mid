@@ -303,7 +303,7 @@ def validate_seqs(working_dir, input_file, seq_type, msa, codon_table):
                     # validate prev seq
                     if seq == "" and seq_name != "":
                         # return f"The sequence named '{seq_name}' is missing<br>"
-                        errors += f"The sequence named '{seq_name}' is missing\n"
+                        errors += f"The sequence named '{seq_name}' is missing newline before the sequence \n"
 
                     if seq != "" and seq_name != "":
                         # validate seq according to type
@@ -354,7 +354,7 @@ def validate_seqs(working_dir, input_file, seq_type, msa, codon_table):
             # validate last sequence
             if seq == "" and seq_name != "":
                 # return f"The sequence named '{seq_name}' is missing<br>"
-                errors += f"The sequence named '{seq_name}' is missing<br>"
+                errors += f"The sequence named '{seq_name}' is missing newline before the sequence <br>"
             else:
                 if msa == "Yes":
                     seq_length = len(seq) if seq_length == 0 else seq_length
