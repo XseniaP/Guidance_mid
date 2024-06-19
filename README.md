@@ -9,38 +9,44 @@
 
 `pip install -r requirements.txt`
 
-**On Linux Ubuntu:**
+**On Ubuntu Linux:**
 
 `sudo apt install python3.12-venv`
+
+`sudo apt install python3-pip`
+
+`sudo apt install git` 
+
+`git clone https://github.com/XseniaP/Guidance_mid.git`
+
+`cd Guidance_mid`
+
+`git pull` 
 
 `python3 -m venv .venv`
 
 `source .venv/bin/activate`
 
-`python3 -m pip install -r requirements.txt`
+`python3 -m pip install -r ./guidance_Linux/requirements.txt`
 
 * The **./script/programs** folder has multiple subfolders with the .cpp programs' source code which require platform-specific builds to be performed. 
   - semphy - **./script/programs/semphy/semphy** path is assumed
   - removeTaxa - **script/programs/removeTaxa/removeTaxa** path is assumed
   - msa_set_score - **script/programs/msa_set_score/msa_set_score** path is assumed 
   - isEqualTree - **script/programs/isEqualTree/isEqualTree** path is assumed
-  - iqtree - **./script/programs/iqtree/bin/iqtree2** path is assumed // executable for your platform (in case it's not Linux/Ubuntu or MacOS-arm64/M1) can be downloaded from [http://www.iqtree.org/doc/Quickstart](http://www.iqtree.org/doc/Quickstart) and named `iqtree2` and located in the following path: 
+  - iqtree - **./script/programs/iqtree/bin/iqtree2** path is assumed // executable for your platform (in case it's not Ubuntu Linux or MacOS-arm64/M1) can be downloaded from [http://www.iqtree.org/doc/Quickstart](http://www.iqtree.org/doc/Quickstart) and named `iqtree2` and located in the following path: 
   ./script/programs/iqtree/bin/ 
 
-Each program makefile is located in this program subfolder accordingly. The existing executables in the folders are built for MacOS-arm64 (M1) and Linux/Ubuntu accordingly, if this is not the platform you are working on, they should be deleted and replaced with the executables which you build on your platform using the makefiles.
+Each program makefile is located in this program subfolder accordingly. The existing executables in the folders are built for MacOS-arm64 (M1) and Ubuntu Linux accordingly, if this is not the platform you are working on, they should be deleted and replaced with the executables which you build on your platform using the makefiles.
 
 * Other prerequisites to be installed:
 
   - MAFFT v7.525 should be installed from [https://mafft.cbrc.jp/alignment/software/source.html](https://mafft.cbrc.jp/alignment/software/source.html) and globally callable with `mafft` command line; if local executable is used (not recommended) then path to it should be updated in **./script/config.py** under MAFFT_GUIDANCE variable and **./script/guidance_args_library.py**
-    - on Linux/Ubuntu .deb file should be downloaded from the official website
-            
-            sudo apt-get install wget
-    
-            wget https://mafft.cbrc.jp/alignment/software/mafft_7.526-1_amd64.deb
-    
-      and can be installed with  `sudo apt install <path_to_deb_file>`   command line
+     
+     - on Linux/Ubuntu can be installed with  `sudo apt install mafft` command line
     
   - prank v.170427 should be installed from [http://wasabiapp.org/software/prank/prank_installation/](http://wasabiapp.org/software/prank/prank_installation/) and globally callable with `prank` command line; if local executable is used (not recommended) then path to it should be updated in **./script/config.py** under PRANK_LECS and PRANK variables and **./script/guidance_args_library.py**
+  
     - on Linux/Ubuntu can be installed with  `sudo apt install prank`  command line
 
   NOT YET SUPPORTED:
@@ -52,9 +58,13 @@ Each program makefile is located in this program subfolder accordingly. The exis
 
 Simple example of running the program from the command line:
 
-`cd <base_directory_of_the_project>`
+`cd <base_directory_of_the_project>`  or  `cd guidance_Linux` in case you used git pull and are currently in the Guidance_mid folder
 
 `python3 script/guidance_main.py --seqFile <path_to_the_fasta_file_with_sequences> --msaProgram MAFFT --seqType aa --outDir <path_to_the_output_directory> --program GUIDANCE2 --bootstraps 100 --proc_num 8`
+
+After you finished working with the virtual environment on Linux/Ubuntu please deactivate the environment by running the following command line:
+
+`deactivate`
 
 In this sample run it is assumed that the input is amino-acids (aa) sequences, 100 bootstrap trees are created and 8 CPUs are used   
 The '--seqType' should be changed to 'nuc' in case of nucleotides
