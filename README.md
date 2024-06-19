@@ -2,22 +2,22 @@
 
 #### Guidance2.1 Beta Version Prerequisites:
 
-* Create python project and save all the files and folders into the project folder accordingly
+* Create python project and save all the files and folders from guidance_MacOS-arm64 (if you are MacOS M1 user) OR from guidance_Linux (if you are working with Linux) into the project folder accordingly
 * Install all prerequisites listed in requirements.txt
-**`pip install -r requirements. txt`**
+**`pip install -r requirements.txt`**
 * The **./script/programs** folder has multiple subfolders with the .cpp programs' source code which require platform-specific builds to be performed. 
   - semphy - **./script/programs/semphy/semphy** path is assumed
   - removeTaxa - **script/programs/removeTaxa/removeTaxa** path is assumed
   - msa_set_score - **script/programs/msa_set_score/msa_set_score** path is assumed 
   - isEqualTree - **script/programs/isEqualTree/isEqualTree** path is assumed
 
-Each program makefile is located in this program subfolder accordingly. The existing executables in the folders are built for MacOS-arm64 (M1), if this is not the platform you are working on, they should be deleted and replaced with the executables which you build on your platform using the makefiles.
+Each program makefile is located in this program subfolder accordingly. The existing executables in the folders are built for MacOS-arm64 (M1) and for Linux, if these are not the platforms you are working on, they should be deleted and replaced with the executables which you build on your platform using the makefiles.
 
 * Other prerequisites to be installed:
   - MAFFT v7.525 should be installed from [https://mafft.cbrc.jp/alignment/software/source.html](https://mafft.cbrc.jp/alignment/software/source.html) and globally callable with `mafft` command line; if local executable is used then path to it should be updated in **./script/config.py** under MAFFT_GUIDANCE variable and **./script/guidance_args_library.py**
   - prank v.170427 should be installed from [http://wasabiapp.org/software/prank/prank_installation/](http://wasabiapp.org/software/prank/prank_installation/) and globally callable with `prank` command line; if local executable is used then path to it should be updated in **./script/config.py** under PRANK_LECS and PRANK variables and **./script/guidance_args_library.py**
   - IQ-tree executable should be downloaded from [http://www.iqtree.org/doc/Quickstart](http://www.iqtree.org/doc/Quickstart) and named `iqtree2` and located in the following path: 
-  ./script/programs/iqtree-2.2.2.6-MacOSX/bin/ . The final path assumed is **./script/programs/iqtree-2.2.2.6-MacOSX/bin/iqtree2**
+  ./script/programs/iqtree/bin/ . The final path assumed is **./script/programs/iqtree/bin/iqtree2**
 
   NOT YET SUPPORTED:
   
@@ -29,6 +29,7 @@ Each program makefile is located in this program subfolder accordingly. The exis
 Simple example of running the program from the command line:
 
 `cd <base_directory_of_the_project>`
+
 `python3 guidance_main.py --seqFile <path_to_the_fasta_file_with_sequences> --msaProgram MAFFT --seqType aa --outDir <path_to_the_output_directory> --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
 In this sample run it is assumed that the input is amino-acids (aa) sequences, 100 bootstrap trees are created and 8 CPUs are used   
