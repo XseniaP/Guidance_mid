@@ -176,6 +176,9 @@ MSA_to_HSSP = "/bioseq/ConSeq/external_scripts/PACC/MSA2hssp.pl"
 # Path to Semphy program
 SEMPHY = "/bioseq/Programs/Semphy/semphy.doubleRep"
 
+# Path to IQ_TREE program
+# IQTREE = "/bioseq/Programs/iqtree/iqtree2"
+
 # Path to Semphy BBL program
 SEMPHY_BBL = ""
 

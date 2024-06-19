@@ -9,7 +9,6 @@ RESULTS = os.path.join(BIN_DIR, "results/Guidance")
 
 
 if __name__ == "__main__":
-
     args_library = Library()
     args_library.check_and_set_input_and_output_variables(sys.argv)
 
