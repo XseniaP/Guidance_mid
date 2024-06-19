@@ -4,18 +4,20 @@
 
 * Create python project and save all the files and folders either from **guidance_MacOS-arm64**  OR **guidance_Linux** folder  into your project folder accordingly
 * Install all prerequisites listed in requirements.txt
+
 **On MacOS (via pip or pip3):**
 
 `pip install -r requirements.txt`
 
 **On Linux Ubuntu:**
-`sudo apt install python3.12-venv
 
-python3 -m venv .venv
+`sudo apt install python3.12-venv`
 
-source .venv/bin/activate
+`python3 -m venv .venv`
 
-python3 -m pip install -r requirements.txt`
+`source .venv/bin/activate`
+
+`python3 -m pip install -r requirements.txt`
 
 * The **./script/programs** folder has multiple subfolders with the .cpp programs' source code which require platform-specific builds to be performed. 
   - semphy - **./script/programs/semphy/semphy** path is assumed
@@ -28,8 +30,18 @@ python3 -m pip install -r requirements.txt`
 Each program makefile is located in this program subfolder accordingly. The existing executables in the folders are built for MacOS-arm64 (M1) and Linux/Ubuntu accordingly, if this is not the platform you are working on, they should be deleted and replaced with the executables which you build on your platform using the makefiles.
 
 * Other prerequisites to be installed:
+
   - MAFFT v7.525 should be installed from [https://mafft.cbrc.jp/alignment/software/source.html](https://mafft.cbrc.jp/alignment/software/source.html) and globally callable with `mafft` command line; if local executable is used (not recommended) then path to it should be updated in **./script/config.py** under MAFFT_GUIDANCE variable and **./script/guidance_args_library.py**
+    - on Linux/Ubuntu .deb file should be downloaded from the official website
+            
+            sudo apt-get install wget
+    
+            wget https://mafft.cbrc.jp/alignment/software/mafft_7.526-1_amd64.deb
+    
+      and can be installed with  `sudo apt install <path_to_deb_file>`   command line
+    
   - prank v.170427 should be installed from [http://wasabiapp.org/software/prank/prank_installation/](http://wasabiapp.org/software/prank/prank_installation/) and globally callable with `prank` command line; if local executable is used (not recommended) then path to it should be updated in **./script/config.py** under PRANK_LECS and PRANK variables and **./script/guidance_args_library.py**
+    - on Linux/Ubuntu can be installed with  `sudo apt install prank`  command line
 
   NOT YET SUPPORTED:
   
