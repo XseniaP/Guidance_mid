@@ -350,7 +350,7 @@ class Library:
                 # self.align_param = "\-\-".join(tmp)
 
             # Check if need to remove reorder with fragments
-            if '--reorder' in self.align_param or '\-\-reorder' in self.align_param:
+            if '--reorder' in self.align_param or "\-\-reorder" in self.align_param:
                 self.align_param = self.align_param.replace('--reorder', '')        # if seed is provided reorder must be removed so the seeds will be first
                 print(
                     "WARNING: --reorder is not allowed if seed alignment is provided, therefore the --reorder argument will be ignored, and the output order will be the same as input (with seeds first)\n")
