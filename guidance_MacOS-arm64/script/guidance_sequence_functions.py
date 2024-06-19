@@ -15,7 +15,8 @@ import glob
 from time_decorator import timeit
 
 # script_dir = os.path.dirname(os.path.realpath(__file__))
-Bin = os.path.dirname(sys.argv[0])
+# Bin = os.path.dirname(sys.argv[0])
+Bin = os.path.dirname(os.path.abspath(sys.argv[0]))
 
 # NEWIC2MAFFT = os.path.join(Bin, 'exec', 'newick2mafft.rb')
 MSA_SET_SCORE = os.path.join(Bin, 'programs', 'msa_set_score', 'msa_set_score')

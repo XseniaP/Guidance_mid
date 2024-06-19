@@ -11,6 +11,7 @@ BIN_DIR = os.path.dirname(Bin)
 
 class Library:
     def __init__(self):
+        self.bin_dir = BIN_DIR
         self.isServer = 0
         self.input_type = "seq"
         # self.proc_num = None

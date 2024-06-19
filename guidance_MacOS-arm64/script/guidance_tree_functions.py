@@ -10,7 +10,7 @@ from Bio import AlignIO, Phylo
 from guidance_common_functions import print_message_to_output, exit_on_error, update_progress
 from time_decorator import timeit
 
-Bin = os.path.dirname(sys.argv[0])
+Bin = os.path.dirname(os.path.abspath(sys.argv[0]))
 
 # NEWIC2MAFFT = os.path.join(Bin, 'exec', 'newick2mafft.rb')
 # newick2mafft = os.path.join(Bin, 'exec', 'newick2mafft.rb')

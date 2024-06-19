@@ -271,7 +271,7 @@ def print_colored_alignment_with_css(in_msa_file, out_html_file, scores_file, co
                     seq = alignment[i - 1]
 
                     msa_colored_html.write("<tr>\n")
-                    if seq_scores_data[str(i)] == "nan":
+                    if seq_scores_data[str(i)] == "nan" or seq_scores_data[str(i)] == "-nan" or np.isnan(float(seq_scores_data[str(i)])):
                         color_class = "ScoreNaN"
                     else:
                         color_class = colorstep[int(9 * float(seq_scores_data[str(i)]))]
@@ -294,7 +294,7 @@ def print_colored_alignment_with_css(in_msa_file, out_html_file, scores_file, co
                             color_class = ""
                             # if scores_data[i][block_start + pos] == "nan":
                             check = scores_data[str(i)][str(pos + 1)]
-                            if scores_data[str(i)][str(pos + 1)] == 'nan':
+                            if scores_data[str(i)][str(pos + 1)] == 'nan' or scores_data[str(i)][str(pos + 1)] == '-nan' or np.isnan(float(scores_data[str(i)][str(pos + 1)])):
                                 color_class = "ScoreNaN"
                             else:
                                 color_class = colorstep[int(9 * float(scores_data[str(i)][str(pos + 1)]))]
@@ -637,7 +637,7 @@ def make_Jalview_Color_MSA(inMsaFile, scoresFile, outJalviewFeaturesFile, codesF
                     else:
                         color_class = ""
                     # elif scores_data[str(i)][pos] != "nan":
-                        if scores_data[str(i)][str(pos + 1)] != "nan":
+                        if scores_data[str(i)][str(pos + 1)] != "nan" and scores_data[str(i)][str(pos + 1)] != "-nan" and not np.isnan(float(scores_data[str(i)][str(pos + 1)])):
                             color_class = color_step[int(9 * float(scores_data[str(i)][str(pos + 1)]))]
                     # get_color_class(float(scores_data[str(i)][pos]))
                             prob = scores_data[str(i)][str(pos + 1)]
@@ -645,7 +645,7 @@ def make_Jalview_Color_MSA(inMsaFile, scoresFile, outJalviewFeaturesFile, codesF
                             if color_class != "Score5":
                                 jalview_features.write(f"{prob}\tID_NOT_SPECIFIED\t{i - 1}\t{pos + 1 - gaps}\t{pos + 1 - gaps}\t{color_class}\t{prob}\n")
 
-                        elif scores_data[str(i)][str(pos + 1)] == "nan":
+                        elif scores_data[str(i)][str(pos + 1)] == "nan" or scores_data[str(i)][str(pos + 1)] == "-nan" or np.isnan(float(scores_data[str(i)][str(pos + 1)])):
                             color_class = "ScoreNaN"
                             jalview_features.write(f"NA\tID_NOT_SPECIFIED\t{i - 1}\t{pos + 1 - gaps}\t{pos + 1 - gaps}\t{color_class}\t{prob}\n")
 
