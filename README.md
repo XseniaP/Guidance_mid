@@ -16,8 +16,11 @@ The following commands can be run in Terminal (Bash) to build and run Docker ima
 *Sample run* for the following file structure, s.t. fasta sequence file is located in data folder and the results of this run are expected to be saved to ABD_results folder:
 
 |-- user
+
 |   |-- data
+
 |   |   |-- ABD.fasta
+
 |   |-- ABD_results
 
 
