@@ -25,7 +25,7 @@ The following commands can be run in Terminal (Bash) to build and run Docker ima
 
 
 
-#### Local run on MacOS-arm64 or Linux
+#### Local run on MacOS-arm64 or Ubuntu Linux
 
 **Prerequisites:**
 
