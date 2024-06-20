@@ -1,13 +1,44 @@
 ### Guidance2.1_Beta_Version
 
-#### Guidance2.1 Beta Version Prerequisites:
+#### Running with Docker:
+
+You need to have a docker engine installed https://www.docker.com/products/docker-desktop/. 
+The following commands can be run in Terminal (Bash) to build and run Docker image: 
+
+`git clone https://github.com/XseniaP/Guidance_mid.git`
+
+`cd Guidance_mid`
+
+`docker build -t guidance .`
+
+`docker run -v <path_to_folder_with_seq_input_file>:/input -v <path_to_out_dir>:/output guidance --seqFile "/input/<name_of_seq_input_file>" --msaProgram <MAFFT or PRANK> --seqType aa --outDir "/output/<out_dir_name>/" --program GUIDANCE2 --bootstraps <integer number of bootstrap trees> --proc_num <number of CPUs>`
+
+*Sample run* for the following file structure, s.t. fasta sequence file is located in data folder and the results of this run are expected to be saved to ABD_results folder:
+
+|-- user
+|   |-- data
+|   |   |-- ABD.fasta
+|   |-- ABD_results
+
+
+`docker run -v /user/data:/input -v /user/ABD_results:/output guidance --seqFile "/input/ABD.fasta" --msaProgram MAFFT --seqType aa --outDir "/output/ABD_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
+
+
+
+#### Local run on MacOS-arm64 or Linux
+
+**Prerequisites:**
 
 * Create python project and save all the files and folders either from **guidance_MacOS-arm64**  OR **guidance_Linux** folder  into your project folder accordingly
 * Install all prerequisites listed in requirements.txt
 
 **On MacOS (via pip or pip3):**
 
-`pip install -r requirements.txt`
+`git clone https://github.com/XseniaP/Guidance_mid.git`
+
+`cd Guidance_mid`
+
+`pip install -r ./guidance_MacOS-arm64/requirements.txt`
 
 **On Ubuntu Linux:**
 
@@ -20,8 +51,6 @@
 `git clone https://github.com/XseniaP/Guidance_mid.git`
 
 `cd Guidance_mid`
-
-`git pull` 
 
 `python3 -m venv .venv`
 
@@ -56,9 +85,9 @@ Each program makefile is located in this program subfolder accordingly. The exis
 
 #### To Run Guidance2.1 Beta Version:
 
-Simple example of running the program from the command line:
+*Simple example* of running the program from the command line:
 
-`cd <base_directory_of_the_project>`  or  `cd guidance_Linux` in case you used git pull and are currently in the Guidance_mid folder
+`cd <base_directory_of_the_project>`  or  `cd guidance_Linux` or `cd guidance_MacOS-arm64` in case you used git pull and are currently in the Guidance_mid folder
 
 `python3 script/guidance_main.py --seqFile <path_to_the_fasta_file_with_sequences> --msaProgram MAFFT --seqType aa --outDir <path_to_the_output_directory> --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
