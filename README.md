@@ -17,11 +17,11 @@ The following commands can be run in Terminal (Bash) to build and run Docker ima
 
 |-- user
 
-|   |-- data
+|--|-- data
 
-|   |   |-- ABD.fasta
+|--|--|-- ABD.fasta
 
-|   |-- ABD_results
+|--|-- ABD_results
 
 
 `docker run -v /user/data:/input -v /user/ABD_results:/output guidance --seqFile "/input/ABD.fasta" --msaProgram MAFFT --seqType aa --outDir "/output/ABD_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
