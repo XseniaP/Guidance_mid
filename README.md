@@ -33,7 +33,7 @@ The following commands can be run in Terminal (Bash) to build and run Docker ima
 | &nbsp;  &nbsp; | &nbsp;  &nbsp; | &nbsp;  &nbsp; |-- AGMAT_results <br />
 
 
-`docker run -v /Users/user/Downloads/data:/input -v /Users/user/Downloads/results:/output guidance --seqFile "/input/AGMAT.fas" --msaProgram MAFFT --seqType aa --outDir "/output/AGMAT_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
+`docker run -v /user/Downloads/data:/input -v /user/Downloads/results:/output guidance --seqFile "/input/AGMAT.fas" --msaProgram MAFFT --seqType aa --outDir "/output/AGMAT_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
 
 #### Local run on MacOS-arm64 or Ubuntu Linux
