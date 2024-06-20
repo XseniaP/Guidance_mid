@@ -23,6 +23,17 @@ The following commands can be run in Terminal (Bash) to build and run Docker ima
 
 `docker run -v /user/data:/input -v /user/ABD_results:/output guidance --seqFile "/input/ABD.fasta" --msaProgram MAFFT --seqType aa --outDir "/output/ABD_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
+*Sample run* for the following file structure, s.t. fasta sequence file is located in data folder and the results of this run are expected to be saved to ABD_results folder:
+
+|-- user <br />
+| &nbsp;  &nbsp; |-- Downloads <br />
+| &nbsp;  &nbsp; | &nbsp;  &nbsp; |-- data <br />
+| &nbsp;  &nbsp; | &nbsp;  &nbsp; | &nbsp;  &nbsp; |-- AGMAT.fas <br />
+| &nbsp;  &nbsp; | &nbsp;  &nbsp; |-- results <br />
+| &nbsp;  &nbsp; | &nbsp;  &nbsp; | &nbsp;  &nbsp; |-- AGMAT_results <br />
+
+
+`docker run -v /Users/user/Downloads/data:/input -v /Users/user/Downloads/results:/output guidance --seqFile "/input/AGMAT.fas" --msaProgram MAFFT --seqType aa --outDir "/output/AGMAT_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
 
 #### Local run on MacOS-arm64 or Ubuntu Linux
