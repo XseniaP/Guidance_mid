@@ -3,7 +3,9 @@
 #### Running with Docker:
 
 You need to have a docker engine installed https://www.docker.com/products/docker-desktop/. 
-The following commands can be run in Terminal (Bash) to build and run Docker image: 
+The following commands can be run in Terminal (Bash) to build and run Docker image.
+
+Building docker image:
 
 `git clone https://github.com/XseniaP/Guidance_mid.git`
 
@@ -11,7 +13,10 @@ The following commands can be run in Terminal (Bash) to build and run Docker ima
 
 `docker build -t guidance .`
 
-`docker run -v <path_to_folder_with_seq_input_file>:/input -v <path_to_out_dir>:/output guidance --seqFile "/input/<name_of_seq_input_file>" --msaProgram <MAFFT or PRANK> --seqType aa --outDir "/output/<out_dir_name>/" --program GUIDANCE2 --bootstraps <integer number of bootstrap trees> --proc_num <number of CPUs>`
+Now when the docker image is built you can perform multiple runs without rebuilding it.
+Now a Guidance run can be performed by running the following command line:
+
+`docker run --rm -v <path_to_folder_with_seq_input_file>:/input -v <path_to_out_dir>:/output guidance --seqFile "/input/<name_of_seq_input_file>" --msaProgram <MAFFT or PRANK> --seqType aa --outDir "/output/<out_dir_name>/" --program GUIDANCE2 --bootstraps <integer number of bootstrap trees> --proc_num <number of CPUs>`
 
 *Sample run* for the following file structure, s.t. fasta sequence file is located in data folder and the results of this run are expected to be saved to ABD_results folder:
 
@@ -21,7 +26,7 @@ The following commands can be run in Terminal (Bash) to build and run Docker ima
 | &nbsp;  &nbsp; |-- ABD_results <br />
 
 
-`docker run -v /user/data:/input -v /user/ABD_results:/output guidance --seqFile "/input/ABD.fasta" --msaProgram MAFFT --seqType aa --outDir "/output/ABD_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
+`docker run --rm  -v /user/data:/input -v /user/ABD_results:/output guidance --seqFile "/input/ABD.fasta" --msaProgram MAFFT --seqType aa --outDir "/output/ABD_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
 *Sample run* for the following file structure, s.t. fasta sequence file has an absolute path /user/Downloads/data/AGMAT.fas  and the results of this run will be saved in /user/Downloads/results/AGMAT_results/ folder:
 
@@ -33,7 +38,7 @@ The following commands can be run in Terminal (Bash) to build and run Docker ima
 | &nbsp;  &nbsp; | &nbsp;  &nbsp; | &nbsp;  &nbsp; |-- AGMAT_results <br />
 
 
-`docker run -v /user/Downloads/data:/input -v /user/Downloads/results:/output guidance --seqFile "/input/AGMAT.fas" --msaProgram MAFFT --seqType aa --outDir "/output/AGMAT_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
+`docker run --rm -v /user/Downloads/data:/input -v /user/Downloads/results:/output guidance --seqFile "/input/AGMAT.fas" --msaProgram MAFFT --seqType aa --outDir "/output/AGMAT_results/" --program GUIDANCE2 --bootstraps 100 --proc_num 8`
 
 
 #### Local run on MacOS-arm64 or Ubuntu Linux
